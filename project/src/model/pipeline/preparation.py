@@ -4,7 +4,7 @@ from loguru import logger
 
 from sklearn.preprocessing import LabelEncoder
 
-from src.model.pipeline.collection import load_data, FILEPATH
+from model.pipeline.collection import load_data, FILEPATH
 
 
 def prepare_data():
@@ -41,7 +41,7 @@ def encode_category_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     mappings['Category'] = {label: code for label,
                             code in zip(le.classes_, le.transform(le.classes_))
                             }
-    return mappings, dataframe
+    return dataframe
 
 
 df = prepare_data()
